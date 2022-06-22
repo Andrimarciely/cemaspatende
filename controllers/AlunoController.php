@@ -81,6 +81,7 @@ class AlunoController extends Controller
                 }
     }
 
+
     /**
      * Updates an existing ALUNO model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -95,13 +96,22 @@ class AlunoController extends Controller
         $consulta = ALUNO::find()->where(['ALUNO_COD_PK'=>$id])->one();
         $file = $consulta->ALUNO_FOTO;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->ALUNO_COD_PK]);
-        }
+        if ($model->load(Yii::$app->request->post())) { // && $model->save()) {
+            if(!empty($file)){
+                @unlink('img/'.$file);
+            }
 
-        return $this->render('update', [
-            'model' => $model,
-        ]);
+            if(!empty($foto)){
+                $model->ALUNO_FOTO = $foto->name;
+                $model-> save();
+                $foto-> saveAs('img/'.$foto->name);
+            }
+            $model->save();
+            return $this->redirect(['view', 'id'=>$model->ALUNO_COD_PK]);
+            
+        }else {
+            return $this->render('update',['model'=> $model,]);
+        }
     }
 
     /**
