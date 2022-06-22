@@ -35,11 +35,11 @@ $this->params['breadcrumbs'][] = $this->title;
             'ALUNO_ENDERECO',
             'ALUNO_FOTO',
             [
-                'attribute'=>'TIPO_ALUNO_COD_FK',
-                'value'=> function($data){
-                           return $data->TIPO_ALUNO_COD_FK->TIPO_ALUNO_NOME;
-                         }
-                ],
+               'attribute'=>'TIPO_ALUNO_COD_FK',
+               'value'=>function($data){ 
+                   return '('.$data ->tIPOALUNOCODFK->TIPO_ALUNO_COD_PK.') '.$data ->tIPOALUNOCODFK->TIPO_ALUNO_NOME;
+                        }
+            ],
         ],
     ]) ?>
 
