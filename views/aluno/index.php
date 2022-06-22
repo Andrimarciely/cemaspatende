@@ -31,10 +31,20 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'TIPO_ALUNO_COD_FK',
                 'value'=>function($data){
                     return $data -> TIPO_ALUNO_COD_FK -> TIPO_ALUNO_NOME;}
-                ],
+             ],
             'ALUNO_DT_NASC',
             'ALUNO_ENDERECO',
-            'ALUNO_FOTO',
+            [
+                'attribute'=>'ALUNO_FOTO',
+                'format'=>'html',
+                'label'=>'Foto do Aluno',
+                'headerOptions'=>[
+                    'style'=>'widh:90px;'
+                ],
+                'value' => function($data){
+                                return Html::img(Yii::getAlias('@web').'/img/'.$data['ALUNO_FOTO'],['width' =>'100px']);
+                },
+            ],
             //'TIPO_ALUNO_COD_FK',
 
             ['class' => 'yii\grid\ActionColumn'],
