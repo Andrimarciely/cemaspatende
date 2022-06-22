@@ -76,14 +76,14 @@ class AlunoController extends Controller
                 $model->save();
                 $foto->saveAs('img/'.$foto->name);
             }
-            $model ->save();
+            $model->save();
             return $this->redirect(['view','id'=> $model->ALUNO_COD_PK]);
-            }
-            return $this -> render('create',[
+        }
+        
+        return $this -> render('create',[
                 'model'=> $model
              ]);
     }
-
 
     /**
      * Updates an existing ALUNO model.
@@ -109,11 +109,15 @@ class AlunoController extends Controller
                 $model-> save();
                 $foto-> saveAs('img/'.$foto->name);
             }
+            
             $model->save();
+            
             return $this->redirect(['view', 'id'=>$model->ALUNO_COD_PK]);
             
         }else {
-            return $this->render('update',['model'=> $model,]);
+            return $this->render('update',[
+                'model'=> $model,
+            ]);
         }
     }
 
@@ -126,6 +130,7 @@ class AlunoController extends Controller
      */
     public function actionDelete($id)
     {
+        
         try{
             $consulta = ALUNO::find()->where(['ALUNO_COD_PK'=>$id])->one();
             $file = $consulta->ALUNO_FOTO;

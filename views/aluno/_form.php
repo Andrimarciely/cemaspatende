@@ -15,7 +15,7 @@ use kartik\select2\Select2;
 
 <div class="aluno-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <?= $form->field($model, 'ALUNO_NOME')->textInput(['maxlength' => true]) ?>
     <?php 
@@ -29,22 +29,14 @@ use kartik\select2\Select2;
             'todayHighlight' => true
         ]
     ]);
-    /// strtotime('+2 days')
     ?>
 
     <?= $form->field($model, 'ALUNO_ENDERECO')->textInput(['maxlength' => true]) ?>
 
     <?php
-    // echo $form->field($model, 'TIPO_ALUNO_COD_FK')->widget(Select2::classname(), [
-    //     'data' => $data,
-    //     'language' => 'pt',
-    //     'options' => ['placeholder' => '- Selecione -'],
-    //     'pluginOptions' => [
-    //         'allowClear' => true
-    //     ],
-    // ]);
     ?>
-<?= $form->field($model, 'TIPO_ALUNO_COD_FK')->widget(Select2::classname(), [
+    
+    <?= $form->field($model, 'TIPO_ALUNO_COD_FK')->widget(Select2::classname(), [
                         'data' => ArrayHelper::map(TIPOALUNO::find()->asArray()->all(), 'TIPO_ALUNO_COD_PK', 'TIPO_ALUNO_NOME'),
 
                         'pluginOptions' => [
@@ -53,8 +45,6 @@ use kartik\select2\Select2;
                         ]
                     ]);
                     ?>
-    
-    <?php $form = ActiveForm::begin(['options'=>['enctype'=>'multipart/form-data']])?>
 
     <?= $form->field($model,'ALUNO_FOTO')->fileInput() ?>
   
