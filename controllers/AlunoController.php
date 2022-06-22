@@ -123,9 +123,18 @@ class AlunoController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+        try{
+            $consulta = ALUNO::find()->where(['ALUNO_COD_PK'=>$id])->one();
+            $file = $consulta->ALUNO_FOTO;
+            @unlink('img/'.$file);
+            $this->findModel($id)->delete();
+            Yii::$app->session->setFlash('sucess', 'Registro Excluído com Sucesso!');
+            return $this->redirect(['index']);
+        } catch (Exception $e){
+            Yii::$app->db->close(); //fix here
+            Yii::$app->session->setFlash('error','Este registro não pode ser excluído pois está sendo utilizado em outro lugar!');
+        }
+            return $this->redirect(['view','id'=>id]);
     }
 
     /**
