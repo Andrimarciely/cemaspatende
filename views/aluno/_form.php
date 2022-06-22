@@ -19,17 +19,17 @@ use kartik\select2\Select2;
 
     <?= $form->field($model, 'ALUNO_NOME')->textInput(['maxlength' => true]) ?>
     <?php 
-    echo '<label>Data de Nascimento</label>';
-    echo DatePicker::widget([
-        'name' => 'ALUNO_DT_NASC', 
-        'value' => date('d/m/Y'),
-        'options' => ['placeholder' => 'Select issue date ...'],
-        'pluginOptions' => [
-            'format' => 'dd/mm/yyyy',
-            'todayHighlight' => true
-        ]
-    ]);
     ?>
+    <?php echo $form->field($model, 'ALUNO_DT_NASC')->widget(DatePicker::className(),[
+                        'name'=>'ALUNO_DT_NASC',
+                       // 'type' => DatePicker::TYPE_INPUT,
+                        'pluginOptions' => [
+                            'format' => 'dd/mm/yyyy',
+                            'autoclose'=>true,
+                            'todayHighlight' => true
+                        ],
+                    ]); 
+        ?>
 
     <?= $form->field($model, 'ALUNO_ENDERECO')->textInput(['maxlength' => true]) ?>
 
