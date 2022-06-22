@@ -66,19 +66,22 @@ class AlunoController extends Controller
     public function actionCreate()
     {
         $model = new ALUNO();
+
         $foto = UploadedFile::getInstance($model,'ALUNO_FOTO');
 
         if ($model->load(Yii::$app->request->post())){
+        
             if(!empty($foto)){
                 $model-> ALUNO_FOTO = $foto->name;
                 $model->save();
                 $foto->saveAs('img/'.$foto->name);
-                }
-                $model ->save();
-                return $this->redirect(['view','id'=> $model->ALUNO_COD_PK]);
-            }else{
-                    return $this -> render('create',['model'=> $model]);
-                }
+            }
+            $model ->save();
+            return $this->redirect(['view','id'=> $model->ALUNO_COD_PK]);
+            }
+            return $this -> render('create',[
+                'model'=> $model
+             ]);
     }
 
 

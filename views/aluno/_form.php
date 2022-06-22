@@ -17,10 +17,7 @@ use kartik\select2\Select2;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <!-- <?= $form->field($model, 'ALUNO_COD_PK')->textInput(['maxlength' => true]) ?> -->
-
     <?= $form->field($model, 'ALUNO_NOME')->textInput(['maxlength' => true]) ?>
-
     <?php 
     echo '<label>Data de Nascimento</label>';
     echo DatePicker::widget([
