@@ -5,6 +5,7 @@ use yii\widgets\ActiveForm;
 use app\models\ALUNO;
 use app\models\TIPOALUNO;
 use app\models\CURSO;
+use app\models\TURMA;
 use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */

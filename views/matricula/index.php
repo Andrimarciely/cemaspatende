@@ -26,10 +26,24 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'MATRICULA_COD_PK',
-            'ALUNO_COD_FK',
-            'CURSO_COD_FK',
-            'TURMA_COD_FK',
-
+            [
+                'attribute'=>'ALUNO_COD_FK',
+                'value'=>function($data){
+                            return $data->aLUNOCODFK->ALUNO_NOME;
+                }
+            ],
+            [
+                'attribute'=>'CURSO_COD_FK';
+                'value'=>function($data){
+                            return $data->cURSOCODFK->CURSO_NOME;
+                }
+            ],
+            [
+                'attribute'=>'TURMA_COD_FK',
+                'value'=>function($data){
+                    return $data->tURMACODFK->TURMA_DT_INICIO."-".$data->tURMACODFK->TURMA_DT_FIM;
+                }
+            ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
