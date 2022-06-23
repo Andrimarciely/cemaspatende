@@ -105,15 +105,28 @@ class TurmaController extends Controller
     public function actionDelete($id)
     {
         try{
-            $this->findModel($id)->delete();
-            Yii::$app->session->setFlash('sucess','Registro Excluído com Sucesso');
-            return $this->redirect(['index']);
-        }catch(Exception $e){
-            Yii::$app->db->close();
-            Yii:$app->session->setFlash('error','Este registro não pode ser excluído pois está sendo utilizado em outro lugar!')
+        $this->findModel($id)->delete();
+        Yii::$app->session->setFlash('sucess','Registro Excluído com Sucesso');
+        return $this->redirect(['index']);
+        } catch (Exception $e){
+        Yii::$app->db->close();
+        Yii::$app->session->setFlash('error','Este registro não pode ser excluído pois está sendo utilizado em outro lugar!')
         }
         return $this->redirect(['view', 'id'=>$id]);
     }
+
+    public function actionDelete($id) {
+        try{
+        $this->findModel($id)->delete();
+        Yii::$app->session->setFlash('success' , 'Registro Excluído com Sucesso!');
+        return $this->redirect(['index']);
+        } catch (Exception $e) {
+        Yii::$app->db->close(); // fix here
+        Yii::$app->session->setFlash('error' , 'Este registro não pode ser excluído pois está sendo
+        utilizado em outro lugar!');
+        }
+        return $this->redirect(['view' , 'id' => $id]);
+        }
 
     /**
      * Finds the TURMA model based on its primary key value.
