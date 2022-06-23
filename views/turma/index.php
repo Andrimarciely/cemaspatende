@@ -33,6 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'TURMA_DT_INICIO',
             'TURMA_DT_FIM',
+            ['class' => 'yii\grid\ActionColumn']
         ]
     ]); ?>
 </div>
