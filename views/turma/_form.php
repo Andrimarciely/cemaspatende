@@ -4,6 +4,10 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use app\models\TURMA;
+use app\models\CURSO;
+use kartik\date\DatePicker;
+use kartik\select2\Select2;
+
 
 /* @var $this yii\web\View */
 /* @var $model app\models\TURMA */
@@ -15,8 +19,6 @@ use app\models\TURMA;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'TURMA_COD_PK')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'TURMA_DT_INICIO')->textInput(['maxlength' => true]) ?>
 
     <?php echo $form->field($model, 'TURMA_DT_INICIO')->widget(DatePicker::className(),[
                         'name'=>'TURMA_DT_INICIO',
@@ -42,7 +44,7 @@ use app\models\TURMA;
 
     
     <?= $form->field($model, 'CURSO_COD_FK')->widget(Select2::classname(), [
-                        'data' => ArrayHelper::map(TIPOALUNO::find()->asArray()->all(), 'CURSO_COD_PK', 'CURSO_NOME'),
+                        'data' => ArrayHelper::map(CURSO::find()->asArray()->all(), 'CURSO_COD_PK', 'CURSO_NOME'),
 
                         'pluginOptions' => [
                             'placeholder' => '- Selecione - ',
