@@ -138,6 +138,4 @@ class MatriculaController extends Controller
         echo "<option>-Nenhuma turma cadastrada-</option>";
         } 
         }
-    }
-
 }
