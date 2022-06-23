@@ -116,10 +116,6 @@ class CursoController extends Controller
 
         return $this->redirect(['view', 'id'=> $id]);
     }
-        
-
-        return $this->redirect(['index']);
-    }
 
     /**
      * Finds the CURSO model based on its primary key value.
