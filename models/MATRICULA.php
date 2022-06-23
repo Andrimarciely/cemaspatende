@@ -13,6 +13,7 @@ use Yii;
  * @property string $TURMA_COD_FK
  *
  * @property TURMA $tURMACODFK
+ * @property ALUNO $aLUNOCODFK
  */
 class MATRICULA extends \yii\db\ActiveRecord
 {
@@ -57,4 +58,21 @@ class MATRICULA extends \yii\db\ActiveRecord
     {
         return $this->hasOne(TURMA::className(), ['TURMA_COD_PK' => 'TURMA_COD_FK']);
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getALUNOCODFK()
+    {
+        return $this->hasOne(ALUNO::className(), ['ALUNO_COD_PK' => 'ALUNO_COD_FK']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCURSOCODFK()
+    {
+        return $this->hasOne(CURSO::className(), ['CURSO_COD_PK' => 'CURSO_COD_FK']);
+    }
+
 }
