@@ -30,7 +30,7 @@ class MATRICULA extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['MATRICULA_COD_PK'], 'required'],
+           // [['MATRICULA_COD_PK'], 'required'],
             [['MATRICULA_COD_PK', 'ALUNO_COD_FK', 'CURSO_COD_FK', 'TURMA_COD_FK'], 'number'],
             [['MATRICULA_COD_PK'], 'unique'],
             [['TURMA_COD_FK'], 'exist', 'skipOnError' => true, 'targetClass' => TURMA::className(), 'targetAttribute' => ['TURMA_COD_FK' => 'TURMA_COD_PK']],
