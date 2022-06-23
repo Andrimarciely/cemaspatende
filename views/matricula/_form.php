@@ -48,7 +48,12 @@ use yii\helpers\ArrayHelper;
                                                                 });' 
                                                             ]);
     ?>
-
+    <?= $form->field($model,'TURMA_COD_FK')->dropDownList(
+        ArrayHelper::map(TURMA::find()->all(),'TURMA_COD_PK','TURMA_DT_INICIO'),
+                                                ['prompt'=>'-Selecione-','disable'=>"$model->isNewRecord,"
+    ]);
+    
+    ?>
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
