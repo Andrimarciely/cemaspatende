@@ -8,6 +8,7 @@ use app\models\CursoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\db\Exception;
 
 /**
  * CursoController implements the CRUD actions for CURSO model.
@@ -104,7 +105,18 @@ class CursoController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        try{
+            $this->findModel($id)->delete();
+            Yii::$app->session->setFlash('success','Registro Excluído com Sucesso!');
+            return $this->redirect(['index']);
+        } catch(Exception $e){
+            Yii::$app->db->close(); 
+            Yii::$app->session->setFlash('error', 'Este registro não pode ser excluído pois está sendo utilizado em outro lugar!');
+        }
+
+        return $this->redirect(['view', 'id'=> $id]);
+    }
+        
 
         return $this->redirect(['index']);
     }
