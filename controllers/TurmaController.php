@@ -104,9 +104,12 @@ class TurmaController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
+        try{
+            $this->findModel($id)->delete();
+            Yii::$app->session->setFlash('error','Este registro não pode ser excluído pois está sendo utilizado em outro lugar!');
+            return $this->redirect(['index']);
+        }
+        return $this->redirect(['view', 'id'=>$id]);
     }
 
     /**
