@@ -33,6 +33,18 @@ use yii\widgets\ActiveForm;
         }
     ?>
 
+    <?= $form->field($model,'CURSO_COD_FK')->dropDownList(ArrayHelper::map(CURSO::find()->all(),'CURSO_COD_PK','CURSO_NOME'),
+                                                            [
+                                                                'prompt'=>'-Selecione-',
+                                                                'disabled' => !$model->isNewRecord,
+                                                                'onChange'=>'
+                                                                    $.post("index.php?r=matricula/listar&id= '.'"+ 
+                                                                    $(this).val(),function(data){
+                                                                                                    $("select#matricula-turma_cod_fk").html(data);
+                                                                });' 
+                                                            ]);
+    ?>
+
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
