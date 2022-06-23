@@ -106,7 +106,7 @@ class TurmaController extends Controller
     {
         try{
             $this->findModel($id)->delete();
-            Yii::$app->session->setFlash('error','Registro Excluído com Sucesso');
+            Yii::$app->session->setFlash('sucess','Registro Excluído com Sucesso');
             return $this->redirect(['index']);
         }catch(Exception $e){
             Yii::$app->db->close();
