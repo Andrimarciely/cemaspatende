@@ -128,14 +128,16 @@ class MatriculaController extends Controller
 
     public function actionListar($id){
         $cturmas=TURMA::find()->where([CURSO_COD_FK=>$id])->count();
-        $cturmas=TURMA::find()->where([CURSO_COD_FK=>$id])->all();
+        $turmas=TURMA::find()->where([CURSO_COD_FK=>$id])->all();
         
         if($cturmas>0){
             foreach($turmas as $turma){
-                echo "<option value='".$turma->TURMA_COD_PK"'>".$turma->TURMA_DT_INICIO."-".$turma->TURMA_COD_PK."'>".$turma->TURMA_INICIO."-".$turma->TURMA_DT_FIM."</option>";
-            }else{
-                echo "<option>-Nenhuma turma cadastrada-</option>";
-            }
+            echo "<option value=' ".$turma->TURMA_COD_PK." '>".$turma->TURMA_DT_INICIO." - ".$turma->TURMA_DT_FIM."</option>";
+        }
+        }else{
+        echo "<option>-Nenhuma turma cadastrada-</option>";
+        } 
         }
     }
+
 }
