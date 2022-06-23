@@ -24,13 +24,15 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
             'TURMA_COD_PK',
+            [
+                'attribute'=>'CURSO_COD_FK',
+                'value' =>function($data){
+                            return $data->cURSOCODFK->CURSO_NOME;
+                }
+            ],
             'TURMA_DT_INICIO',
             'TURMA_DT_FIM',
-            'CURSO_COD_FK',
-
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
+        ]
     ]); ?>
 </div>
