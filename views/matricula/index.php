@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             [
-                'attribute'=>'CURSO_COD_FK';
+                'attribute'=>'CURSO_COD_FK',
                 'value'=>function($data){
                             return $data->cURSOCODFK->CURSO_NOME;
                 }
@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute'=>'TURMA_COD_FK',
                 'value'=>function($data){
-                    return $data->tURMACODFK->TURMA_DT_INICIO."-".$data->tURMACODFK->TURMA_DT_FIM;
+                            return $data->tURMACODFK->TURMA_DT_INICIO."-".$data->tURMACODFK->TURMA_DT_FIM;
                 }
             ],
             ['class' => 'yii\grid\ActionColumn'],
