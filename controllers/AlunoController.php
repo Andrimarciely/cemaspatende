@@ -72,9 +72,9 @@ class AlunoController extends Controller
         if ($model->load(Yii::$app->request->post())){
         
             if(!empty($foto)){
-                $model-> ALUNO_FOTO = $foto->name;
+                $model-> ALUNO_FOTO = $model->ALUNO_COD_PK.'.'.$foto->extension_loaded;
                 $model->save();
-                $foto->saveAs('img/'.$foto->name);
+                $foto->saveAs('img/'.$model->ALUNO_COD_PK.'.'.$foto->extension_loaded);
             }
             $model->save();
             return $this->redirect(['view','id'=> $model->ALUNO_COD_PK]);
@@ -107,7 +107,7 @@ class AlunoController extends Controller
             if(!empty($foto)){
                 $model->ALUNO_FOTO = $foto->name;
                 $model-> save();
-                $foto-> saveAs('img/'.$foto->name);
+                $foto-> saveAs('img/'.$consulta->ALUNO_COD_PK);
             }
             
             $model->save();
