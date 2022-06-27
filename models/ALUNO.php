@@ -48,12 +48,12 @@ class ALUNO extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ALUNO_COD_PK' => 'Aluno Cod Pk',
-            'ALUNO_NOME' => 'Aluno Nome',
-            'ALUNO_DT_NASC' => 'Aluno Dt Nasc',
-            'ALUNO_ENDERECO' => 'Aluno Endereco',
-            'ALUNO_FOTO' => 'Aluno Foto',
-            'TIPO_ALUNO_COD_FK' => 'Tipo Aluno Cod Fk',
+            'ALUNO_COD_PK' => 'Cod.',
+            'ALUNO_NOME' => 'Nome',
+            'ALUNO_DT_NASC' => 'Dt. Nasc.',
+            'ALUNO_ENDERECO' => 'Endereco',
+            'ALUNO_FOTO' => 'Foto',
+            'TIPO_ALUNO_COD_FK' => 'Tipo de Aluno',
         ];
     }
 
