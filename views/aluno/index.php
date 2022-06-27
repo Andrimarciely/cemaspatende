@@ -43,7 +43,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'style'=>'widh:90px;'
                 ],
                 'value' => function($data){
-                                return Html::img(Yii::getAlias('@web').'/img/'.$data['ALUNO_FOTO'],['width' =>'100px']);
+                                return Html::img(Yii::getAlias('@web').'/img/'.$data['ALUNO_COD_PK'].'.'.$data['ALUNO_FOTO'],['width' =>'100px']);
                 },
             ],
             ['class' => 'yii\grid\ActionColumn',

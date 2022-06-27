@@ -72,9 +72,9 @@ class AlunoController extends Controller
         if ($model->load(Yii::$app->request->post())){
         
             if(!empty($foto)){
-                $model-> ALUNO_FOTO = $model->ALUNO_COD_PK.'.'.$foto->extension_loaded;
+                $model-> ALUNO_FOTO = $model->ALUNO_COD_PK.'.'.$foto->extension;
                 $model->save();
-                $foto->saveAs('img/'.$model->ALUNO_COD_PK.'.'.$foto->extension_loaded);
+                $foto->saveAs('img/'.$model->ALUNO_COD_PK.'.'.$foto->extension);
             }
             $model->save();
             return $this->redirect(['view','id'=> $model->ALUNO_COD_PK]);
@@ -96,6 +96,7 @@ class AlunoController extends Controller
     {
         $model = $this->findModel($id);
         $foto = UploadedFile::getInstance($model,'ALUNO_FOTO');
+        
         $consulta = ALUNO::find()->where(['ALUNO_COD_PK'=>$id])->one();
         $file = $consulta->ALUNO_FOTO;
 
@@ -105,9 +106,9 @@ class AlunoController extends Controller
             }
 
             if(!empty($foto)){
-                $model->ALUNO_FOTO = $foto->name;
+                $model->ALUNO_FOTO = $foto->extension;
                 $model-> save();
-                $foto-> saveAs('img/'.$consulta->ALUNO_COD_PK);
+                $foto-> saveAs('img/'.$consulta->ALUNO_COD_PK).'.'.$foto->extension;
             }
             
             $model->save();
