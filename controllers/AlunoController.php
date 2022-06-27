@@ -70,20 +70,24 @@ class AlunoController extends Controller
         $foto = UploadedFile::getInstance($model,'ALUNO_FOTO');
 
         if ($model->load(Yii::$app->request->post())){
-        
-            if(!empty($foto)){
-                $model-> ALUNO_FOTO = $foto->extension;
-                $model->save();
-                $foto->saveAs('img/'.$model->ALUNO_COD_PK.'.'.$foto->extension);
-            }
+            $model-> ALUNO_FOTO = $foto->extension;
             $model->save();
+            if(!empty($foto)){
+                $foto->saveAs('img/'.$foto->extension);
+                
+            //echo '$model->ALUNO_COD_PK: '.$model->ALUNO_COD_PK;
+            //die;
+            }
+            //$model->save();
             return $this->redirect(['view','id'=> $model->ALUNO_COD_PK]);
         }
         
         return $this -> render('create',[
                 'model'=> $model
              ]);
+    
     }
+
 
     /**
      * Updates an existing ALUNO model.
@@ -143,7 +147,7 @@ class AlunoController extends Controller
             Yii::$app->db->close(); //fix here
             Yii::$app->session->setFlash('error','Este registro não pode ser excluído pois está sendo utilizado em outro lugar!');
         }
-            return $this->redirect(['view','id'=>id]);
+            //return $this->redirect(['view','id'=>id]);
     }
 
     /**
