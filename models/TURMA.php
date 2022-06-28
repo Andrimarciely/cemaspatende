@@ -31,7 +31,7 @@ class TURMA extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['TURMA_COD_PK'], 'required'],
+            //[['TURMA_COD_PK'], 'required'],
             [['TURMA_COD_PK', 'CURSO_COD_FK'], 'number'],
             [['TURMA_DT_INICIO', 'TURMA_DT_FIM'], 'string', 'max' => 10],
             [['TURMA_COD_PK'], 'unique'],

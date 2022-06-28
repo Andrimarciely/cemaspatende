@@ -42,11 +42,21 @@ class AlunoSearch extends ALUNO
     {
         $query = ALUNO::find();
 
+        $query->orderBy([
+
+            'ALUNO_COD_PK' => SORT_ASC,
+            //'ALUNO_COD_PK' => SORT_DESC,
+
+         ]);
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
+         $query->orderBy([
+            'ALUNO_COD_PK' => SORT_ASC,
+        //'ALUNO_COD_PK' => SORT_DESC,
+         ]);
 
         $this->load($params);
 

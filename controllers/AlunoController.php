@@ -68,26 +68,26 @@ class AlunoController extends Controller
         $model = new ALUNO();
 
         $foto = UploadedFile::getInstance($model,'ALUNO_FOTO');
+        //echo '$model->ALUNO_COD_PK: '.$model->ALUNO_COD_PK;
+        //die;
 
-        if ($model->load(Yii::$app->request->post())){
-            $model-> ALUNO_FOTO = $foto->extension;
-            $model->save();
+
+        if ($model->load(Yii::$app->request->post() && $model->save())) {
+
             if(!empty($foto)){
-                $foto->saveAs('img/'.$foto->extension);
-                
-            //echo '$model->ALUNO_COD_PK: '.$model->ALUNO_COD_PK;
-            //die;
+                $model->ALUNO_FOTO = $foto->extension;
+                $model->save();
+                $foto->saveAs('img/'.$model->ALUNO_COD_PK.'.'.$foto->extension);                
             }
-            //$model->save();
-            return $this->redirect(['view','id'=> $model->ALUNO_COD_PK]);
+            return $this->redirect(['view', 'id' => $model->ALUNO_COD_PK]);
         }
-        
-        return $this -> render('create',[
-                'model'=> $model
-             ]);
-    
-    }
 
+        return $this->render('create', [
+            'model' => $model,
+        ]);
+    }
+    
+    
 
     /**
      * Updates an existing ALUNO model.
@@ -111,12 +111,16 @@ class AlunoController extends Controller
 
             if(!empty($foto)){
                 $model->ALUNO_FOTO = $foto->extension;
-                $model-> save();
-                $foto-> saveAs('img/'.$consulta->ALUNO_COD_PK).'.'.$foto->extension;
             }
             
             $model->save();
             
+            $model = $this->findModel($id);
+            $model -> ALUNO_FOTO = $model->ALUNO_COD_PK.'.'.$model->ALUNO_FOTO;
+            $model->save();
+            $model = $this->findModel($id);
+            $foto-> saveAs('img/'.$model->ALUNO_FOTO);
+
             return $this->redirect(['view', 'id'=>$model->ALUNO_COD_PK]);
             
         }else {

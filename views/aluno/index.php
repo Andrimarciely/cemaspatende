@@ -42,9 +42,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 'headerOptions'=>[
                     'style'=>'widh:90px;'
                 ],
-                'value' => function($data){
-                                return Html::img(Yii::getAlias('@web').'/img/'.$data['ALUNO_COD_PK'].'.'.$data['ALUNO_FOTO'],['width' =>'100px']);
-                },
+                'value' => $data['ALUNO_FOTO'] //function($data){
+                                //return Html::img(Yii::getAlias('@web').'/img/'.$data['ALUNO_COD_PK'].'.'.$data['ALUNO_FOTO'],['width' =>'100px']);
+                //},
             ],
             ['class' => 'yii\grid\ActionColumn',
                         'template' => '{view} {update} {delete} {matricula} ',
