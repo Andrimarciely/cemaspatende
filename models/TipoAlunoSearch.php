@@ -48,6 +48,11 @@ class tipoalunoSearch extends TIPOALUNO
             'query' => $query,
         ]);
 
+        $query->orderBy([
+            'TIPOALUNO_COD_PK' => SORT_ASC,
+        //'ALUNO_COD_PK' => SORT_DESC,
+         ]);
+
         $this->load($params);
 
         if (!$this->validate()) {
