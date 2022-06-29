@@ -8,6 +8,7 @@ use app\models\TurmaSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\db\Exception; //namespace
 
 /**
  * TurmaController implements the CRUD actions for TURMA model.
@@ -105,11 +106,12 @@ class TurmaController extends Controller
     public function actionDelete($id)
     {
         try{
+        $consulta = TURMA::find()->where(['ALUNO_COD_PK'=>$id])->one();
         $this->findModel($id)->delete();
         Yii::$app->session->setFlash('success','Registro Excluído com Sucesso');
         return $this->redirect(['index']);
 
-        } catch (NotFoundHttpException $e){
+        } catch (Exception $e){
         Yii::$app->db->close();
         Yii::$app->session->setFlash('error','Este registro não pode ser excluído pois está sendo utilizado em outro lugar!');
         }
