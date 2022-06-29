@@ -18,8 +18,6 @@ use kartik\select2\Select2;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'TURMA_COD_PK')->textInput(['maxlength' => true]) ?>
-
     <?php echo $form->field($model, 'TURMA_DT_INICIO')->widget(DatePicker::className(),[
                         'name'=>'TURMA_DT_INICIO',
                        // 'type' => DatePicker::TYPE_INPUT,

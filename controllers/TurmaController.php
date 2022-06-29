@@ -109,7 +109,7 @@ class TurmaController extends Controller
         Yii::$app->session->setFlash('success','Registro Excluído com Sucesso');
         return $this->redirect(['index']);
 
-        } catch (Exception $e){
+        } catch (NotFoundHttpException $e){
         Yii::$app->db->close();
         Yii::$app->session->setFlash('error','Este registro não pode ser excluído pois está sendo utilizado em outro lugar!');
         }
