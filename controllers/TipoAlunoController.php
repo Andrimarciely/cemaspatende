@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\TIPOALUNO;
+use app\models\ALUNO;
 use app\models\tipoalunoSearch;
 use Exception;
 use yii\web\Controller;
@@ -107,7 +108,7 @@ class TipoalunoController extends Controller
     public function actionDelete($id)
     {
         try{
-            $consulta = TIPOALUNO::find()->where(['ALUNO_COD_PK'=>$id])->one();
+            $consulta = ALUNO::find()->where(['TIPO_ALUNO_COD_FK'=>$id])->one();
             $this-> findModel($id)->delete();
             Yii::$app->session->setFlash('sucess','Registro Excluído com Sucesso');
             return $this->redirect(['index']);
