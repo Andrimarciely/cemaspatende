@@ -112,7 +112,6 @@ class TipoalunoController extends Controller
             Yii::$app->session->setFlash('sucess','Registro Excluído com Sucesso');
             return $this->redirect(['index']);
         } catch (Exception $e){
-        $this->findModel($id)->delete();
         Yii::$app->db->close();
         Yii::$app->session->setFlash('error','Este registro não pode ser excluído pois está sendo utilizado em outro lugar!');
         }

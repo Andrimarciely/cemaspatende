@@ -106,7 +106,7 @@ class TurmaController extends Controller
     public function actionDelete($id)
     {
         try{
-        $consulta = TURMA::find()->where(['ALUNO_COD_PK'=>$id])->one();
+        $consulta = TURMA::find()->where(['TURMA_COD_PK'=>$id])->one();
         $this->findModel($id)->delete();
         Yii::$app->session->setFlash('success','Registro Excluído com Sucesso');
         return $this->redirect(['index']);
