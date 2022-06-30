@@ -29,7 +29,7 @@ class CURSO extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['CURSO_COD_PK'], 'required'],
+           // [['CURSO_COD_PK'], 'required'],
             [['CURSO_COD_PK'], 'number'],
             [['CURSO_NOME'], 'string', 'max' => 50],
             [['CURSO_CARGA_HORARIA'], 'string', 'max' => 20],

@@ -17,6 +17,8 @@ use Yii;
  */
 class MATRICULA extends \yii\db\ActiveRecord
 {
+    
+
     /**
      * {@inheritdoc}
      */
@@ -73,6 +75,11 @@ class MATRICULA extends \yii\db\ActiveRecord
     public function getCURSOCODFK()
     {
         return $this->hasOne(CURSO::className(), ['CURSO_COD_PK' => 'CURSO_COD_FK']);
+    }
+
+    public function getnMATRICULAS(){
+        $n = 0;
+        return $n;
     }
 
 }

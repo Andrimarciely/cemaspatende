@@ -16,8 +16,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'CURSO_CARGA_HORARIA')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'CURSO_COD_PK')->textInput(['maxlength' => true]) ?>
-
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>
