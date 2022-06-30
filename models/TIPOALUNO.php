@@ -28,7 +28,7 @@ class TIPOALUNO extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['TIPO_ALUNO_COD_PK'], 'required'],
+            //[['TIPO_ALUNO_COD_PK'], 'required'],
             [['TIPO_ALUNO_COD_PK'], 'number'],
             [['TIPO_ALUNO_NOME'], 'string', 'max' => 50],
             [['TIPO_ALUNO_COD_PK'], 'unique'],
