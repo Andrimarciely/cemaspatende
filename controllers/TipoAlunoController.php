@@ -115,15 +115,13 @@ class TipoalunoController extends Controller
             return $this->redirect(['index']);
 
         } catch (Exception $e){
-            //Yii::$app->db->close();
-            Yii::$app->session->setFlash('error','Este registro não pode ser excluído pois está sendo utilizado em outro lugar!');
-            
-            if 
-        
+    
+            Yii::$app->db->close(); 
+            Yii::$app->session->setFlash('error','Este registro não pode ser excluído pois está sendo utilizado em outro lugar!');  
 
         }
         
-        return $this->redirect(['index']);
+        return $this->redirect(['view', 'id'=> $id]);
     }
 
     /**
