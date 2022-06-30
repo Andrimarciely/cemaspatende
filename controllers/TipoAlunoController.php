@@ -108,14 +108,17 @@ class TipoalunoController extends Controller
     public function actionDelete($id)
     {
         try{
-            $consulta = ALUNO::find()->where(['TIPO_ALUNO_COD_FK'=>$id])->one();
             $this-> findModel($id)->delete();
             Yii::$app->session->setFlash('sucess','Registro Excluído com Sucesso');
             return $this->redirect(['index']);
+
         } catch (Exception $e){
+
         Yii::$app->db->close();
         Yii::$app->session->setFlash('error','Este registro não pode ser excluído pois está sendo utilizado em outro lugar!');
+
         }
+        
         return $this->redirect(['index']);
     }
 
