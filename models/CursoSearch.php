@@ -48,6 +48,11 @@ class CursoSearch extends CURSO
             'query' => $query,
         ]);
 
+        $query->orderBy([
+            'CURSO_COD_PK' => SORT_ASC,
+        //'ALUNO_COD_PK' => SORT_DESC,
+        ]);
+
         $this->load($params);
 
         if (!$this->validate()) {

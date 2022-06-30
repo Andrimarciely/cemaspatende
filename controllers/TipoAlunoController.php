@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\TIPOALUNO;
 use app\models\tipoalunoSearch;
+use Exception;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -17,6 +18,7 @@ class TipoalunoController extends Controller
     /**
      * {@inheritdoc}
      */
+
     public function behaviors()
     {
         return [
@@ -104,8 +106,16 @@ class TipoalunoController extends Controller
      */
     public function actionDelete($id)
     {
+        try{
+            $consulta = TIPOALUNO::find()->where(['ALUNO_COD_PK'=>$id])->one();
+            $this-> findModel($id)->delete();
+            Yii::$app->session->setFlash('sucess','Registro Excluído com Sucesso');
+            return $this->redirect(['index']);
+        } catch (Exception $e){
         $this->findModel($id)->delete();
-
+        Yii::$app->db->close();
+        Yii::$app->session->setFlash('error','Este registro não pode ser excluído pois está sendo utilizado em outro lugar!');
+        }
         return $this->redirect(['index']);
     }
 
