@@ -67,4 +67,9 @@ class TURMA extends \yii\db\ActiveRecord
     {
         return $this->hasOne(CURSO::className(), ['CURSO_COD_PK' => 'CURSO_COD_FK']);
     }
+
+    public function cONFEREDATAS()
+    {
+        return 1;
+    }
 }

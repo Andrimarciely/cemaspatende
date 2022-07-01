@@ -82,4 +82,6 @@ class MATRICULA extends \yii\db\ActiveRecord
         return $n;
     }
 
+    
+
 }

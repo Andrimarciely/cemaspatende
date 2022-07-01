@@ -46,10 +46,10 @@ use kartik\select2\Select2;
                     ?>
     
     
-    <?= $form->field($model,'ALUNO_FOTO')->fileInput() ?>
+   
   
     <div class="form-group">
-        <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Próximo', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
