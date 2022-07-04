@@ -42,5 +42,4 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ],
     ]) ?>
-<?php  echo $model->ALUNO_FOTO;?>
 </div>
