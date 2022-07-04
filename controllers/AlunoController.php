@@ -67,10 +67,31 @@ class AlunoController extends Controller
     {
         $model = new ALUNO();
 
-        $foto = UploadedFile::getInstance($model,'ALUNO_FOTO');
-        //echo '$model->ALUNO_COD_PK: '.$model->ALUNO_COD_PK;
-        //die;
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
 
+            if(!empty($foto)){
+                $model->ALUNO_FOTO = $foto->extension;
+                $model->save();
+                $foto->saveAs('img/'.$foto->extension);
+                //$foto->saveAs('img/'.$model->ALUNO_COD_PK.'.'.$foto->extension);                 
+            }
+
+            $model->save();
+           // echo '$model->ALUNO_COD_PK: '.$model->ALUNO_COD_PK;
+            // die;
+            return $this->redirect(['view', 'id' => $model->ALUNO_COD_PK]);
+        }
+
+        return $this->render('create', [
+            'model' => $model, 
+        ]);
+    }
+
+    public function actionUploadFoto()
+    {
+        $model = $this->findModel($id);
+        $foto = UploadedFile::getInstance($model,'ALUNO_FOTO');
+        
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
 
             if(!empty($foto)){
@@ -125,7 +146,7 @@ class AlunoController extends Controller
             $model->save();
  
             $model = $this->findModel($id);
-            $foto-> saveAs('img/'.$nome);
+            //$foto-> saveAs('img/'.$nome);
             return $this->redirect(['view', 'id'=>$model->ALUNO_COD_PK]);
             
         }else {

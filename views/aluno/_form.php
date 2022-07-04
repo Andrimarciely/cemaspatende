@@ -49,7 +49,7 @@ use kartik\select2\Select2;
    
   
     <div class="form-group">
-        <?= Html::submitButton('Próximo', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Salvar', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
