@@ -34,7 +34,7 @@ use kartik\select2\Select2;
 
     <?= $form->field($model,'ALUNO_FOTO')-> fileInput()?>
 
-<?= $form->field($model, 'TIPO_ALUNO_COD_FK')->widget(Select2::classname(), [
+    <?= $form->field($model, 'TIPO_ALUNO_COD_FK')->widget(Select2::classname(), [
                         'data' => ArrayHelper::map(TIPOALUNO::find()->asArray()->all(), 'TIPO_ALUNO_COD_PK', 'TIPO_ALUNO_NOME'),
                         'pluginOptions' => [
                             'placeholder' => '- Selecione - ',
