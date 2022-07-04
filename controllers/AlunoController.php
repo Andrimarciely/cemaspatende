@@ -70,11 +70,12 @@ class AlunoController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
 
             $model->save();
-            //echo '$model->ALUNO_COD_PK: '.$model->ALUNO_COD_PK;
+           // echo '$model->ALUNO_COD_PK: '.$model->ALUNO_COD_PK;
             // die;
             $this->actionUploadFoto($model->ALUNO_COD_PK);
             return $this->redirect(['view', 'id' => $model->ALUNO_COD_PK]);
         }
+
         return $this->render('create', [
             'model' => $model, 
         ]);
@@ -104,7 +105,7 @@ class AlunoController extends Controller
         $model->save();
 
         $model = $this->findModel($id);
-        //$foto-> saveAs('img/'.$nome);
+        $foto-> saveAs('img/'.$model->ALUNO_FOTO);
         return $this->redirect(['view', 'id'=>$model->ALUNO_COD_PK]);
         
     }else {
@@ -126,39 +127,23 @@ class AlunoController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $foto = UploadedFile::getInstance($model,'ALUNO_FOTO');
-        $nome = '';
+    /*     $foto = UploadedFile::getInstance($model,'ALUNO_FOTO');
         
         $consulta = ALUNO::find()->where(['ALUNO_COD_PK'=>$id])->one();
-        $file = $consulta->ALUNO_FOTO;
+        $file = $consulta->ALUNO_FOTO; */
 
         if ($model->load(Yii::$app->request->post())) { // && $model->save()) {
-            if(!empty($file)){
-                @unlink('img/'.$file);
-            }
-
-            if(!empty($foto)){
-                $model->ALUNO_FOTO = $foto->extension;
-            }
             
             $model->save();
+            $this->actionUploadFoto($model->ALUNO_COD_PK); //add
             
-            $model = $this->findModel($id);
-            $model->ALUNO_FOTO = $model->ALUNO_COD_PK.'.'.$model->ALUNO_FOTO;
-            $model->save();
- 
-            $model = $this->findModel($id);
-            //$foto-> saveAs('img/'.$nome);
             return $this->redirect(['view', 'id'=>$model->ALUNO_COD_PK]);
             
-        }else {
-            return $this->render('update',[
-                'model'=> $model,
-            ]);
-        } 
-
-
-    }
+        }
+      return $this->render('update',[
+           'model'=> $model,
+      ]);
+ } 
 
     /**
      * Deletes an existing ALUNO model.
