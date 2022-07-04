@@ -69,47 +69,49 @@ class AlunoController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
 
-            if(!empty($foto)){
-                $model->ALUNO_FOTO = $foto->extension;
-                $model->save();
-                $foto->saveAs('img/'.$foto->extension);
-                //$foto->saveAs('img/'.$model->ALUNO_COD_PK.'.'.$foto->extension);                 
-            }
-
             $model->save();
-           // echo '$model->ALUNO_COD_PK: '.$model->ALUNO_COD_PK;
+            //echo '$model->ALUNO_COD_PK: '.$model->ALUNO_COD_PK;
             // die;
+            $this->actionUploadFoto($model->ALUNO_COD_PK);
             return $this->redirect(['view', 'id' => $model->ALUNO_COD_PK]);
         }
-
         return $this->render('create', [
             'model' => $model, 
         ]);
     }
 
-    public function actionUploadFoto()
+    public function actionUploadFoto($id)
     {
-        $model = $this->findModel($id);
-        $foto = UploadedFile::getInstance($model,'ALUNO_FOTO');
-        
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+    $model = $this->findModel($id);
+    $foto = UploadedFile::getInstance($model,'ALUNO_FOTO');
+    
+    $consulta = ALUNO::find()->where(['ALUNO_COD_PK'=>$id])->one();
+    $file = $consulta->ALUNO_FOTO;
 
-            if(!empty($foto)){
-                $model->ALUNO_FOTO = $foto->extension;
-                $model->save();
-                $foto->saveAs('img/'.$foto->extension);
-                //$foto->saveAs('img/'.$model->ALUNO_COD_PK.'.'.$foto->extension);                 
-            }
-
-            $model->save();
-           // echo '$model->ALUNO_COD_PK: '.$model->ALUNO_COD_PK;
-            // die;
-            return $this->redirect(['view', 'id' => $model->ALUNO_COD_PK]);
+    if ($model->load(Yii::$app->request->post())) { // && $model->save()) {
+        if(!empty($file)){
+            @unlink('img/'.$file);
         }
 
-        return $this->render('create', [
-            'model' => $model, 
+        if(!empty($foto)){
+            $model->ALUNO_FOTO = $foto->extension;
+        }
+        
+        $model->save();
+        
+        $model = $this->findModel($id);
+        $model->ALUNO_FOTO = $model->ALUNO_COD_PK.'.'.$model->ALUNO_FOTO;
+        $model->save();
+
+        $model = $this->findModel($id);
+        //$foto-> saveAs('img/'.$nome);
+        return $this->redirect(['view', 'id'=>$model->ALUNO_COD_PK]);
+        
+    }else {
+        return $this->render('update',[
+            'model'=> $model,
         ]);
+        }
     }
     
     
@@ -153,7 +155,9 @@ class AlunoController extends Controller
             return $this->render('update',[
                 'model'=> $model,
             ]);
-        }
+        } 
+
+
     }
 
     /**
@@ -195,4 +199,6 @@ class AlunoController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
+
 }

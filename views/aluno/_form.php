@@ -18,37 +18,37 @@ use kartik\select2\Select2;
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <?= $form->field($model, 'ALUNO_NOME')->textInput(['maxlength' => true]) ?>
-    <?php 
-    ?>
+
     <?php echo $form->field($model, 'ALUNO_DT_NASC')->widget(DatePicker::className(),[
                         'name'=>'ALUNO_DT_NASC',
                        // 'type' => DatePicker::TYPE_INPUT,
                         'pluginOptions' => [
                             'format' => 'dd/mm/yyyy',
                             'autoclose'=>true,
-                            'todayHighlight' => true
+                            'todayHighlight' => true    
                         ],
                     ]); 
         ?>
 
     <?= $form->field($model, 'ALUNO_ENDERECO')->textInput(['maxlength' => true]) ?>
 
-    <?php
-    ?>
-    <?= $form->field($model, 'TIPO_ALUNO_COD_FK')->widget(Select2::classname(), [
-                        'data' => ArrayHelper::map(TIPOALUNO::find()->asArray()->all(), 'TIPO_ALUNO_COD_PK', 'TIPO_ALUNO_NOME'),
+    <?= $form->field($model,'ALUNO_FOTO')-> fileInput()?>
 
+<?= $form->field($model, 'TIPO_ALUNO_COD_FK')->widget(Select2::classname(), [
+                        'data' => ArrayHelper::map(TIPOALUNO::find()->asArray()->all(), 'TIPO_ALUNO_COD_PK', 'TIPO_ALUNO_NOME'),
                         'pluginOptions' => [
                             'placeholder' => '- Selecione - ',
                             'allowClear' => true,
                         ]
                     ]);
                     ?>
-    
-    
    
+
+  <div class="img-content"></div>
+    <script src="custom.js"></script>   
   
     <div class="form-group">
+
         <?= Html::submitButton('Salvar', ['class' => 'btn btn-success']) ?>
     </div>
 
