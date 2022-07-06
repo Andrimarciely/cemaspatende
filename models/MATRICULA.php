@@ -33,10 +33,9 @@ class MATRICULA extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-           // [['MATRICULA_COD_PK'], 'required'],
-            [['MATRICULA_COD_PK', 'ALUNO_COD_FK', 'CURSO_COD_FK', 'TURMA_COD_FK'], 'number'],
+            [['MATRICULA_COD_PK', 'ALUNO_COD_FK', 'CURSO_COD_FK',], 'number'],
+            [['TURMA_COD_FK'],'string', 'max' => 20],
             [['MATRICULA_COD_PK'], 'unique'],
-            [['TURMA_COD_FK'], 'exist', 'skipOnError' => true, 'targetClass' => TURMA::className(), 'targetAttribute' => ['TURMA_COD_FK' => 'TURMA_COD_PK']],
         ];
     }
 
@@ -49,9 +48,7 @@ class MATRICULA extends \yii\db\ActiveRecord
             'MATRICULA_COD_PK' => 'Matricula Cod Pk',
             'ALUNO_COD_FK' => 'Aluno Cod Fk',
             'CURSO_COD_FK' => 'Curso Cod Fk',
-//            'TURMA_COD_FK' => 'Turma Cod Fk',
-            [['TURMA_COD_FK'], 'exist', 'skipOnError' => true, 'targetClass' => TURMA::className(), 'targetAttribute' => ['TURMA_COD_FK' => 'TURMA_COD_PK']],
-
+            'TURMA_COD_FK' => 'Turma Cod Fk',
         ];
     }
 
@@ -79,10 +76,7 @@ class MATRICULA extends \yii\db\ActiveRecord
         return $this->hasOne(CURSO::className(), ['CURSO_COD_PK' => 'CURSO_COD_FK']);
     }
 
-    public function getnMATRICULAS(){
-        $n = 0;
-        return $n;
-    }
+
 
     
 
