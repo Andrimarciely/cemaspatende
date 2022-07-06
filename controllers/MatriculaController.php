@@ -133,7 +133,7 @@ class MatriculaController extends Controller
         
         if($cturmas>0){
             foreach($turmas as $turma){
-            echo "<option value=' ".$turma->TURMA_COD_PK." '>".$turma->TURMA_DT_INICIO." -- ".$turma->TURMA_DT_FIM."</option>";
+            echo "<option value=' ".$turma->TURMA_COD_PK." '>".$turma->TURMA_DT_INICIO." - ".$turma->TURMA_DT_FIM."</option>";
         }
         }else{
         echo "<option>-Nenhuma turma cadastrada-</option>";

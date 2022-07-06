@@ -60,15 +60,15 @@ class TurmaSearch extends TURMA
         $query->andFilterWhere([
             'TURMA_COD_PK' => $this->TURMA_COD_PK,
             'CURSO_COD_FK' => $this->CURSO_COD_FK,
+            'TURMA_DT_INICIO', $this->TURMA_DT_INICIO,
+            'TURMA_DT_FIM', $this->TURMA_DT_FIM
+
         ]);
 
         $query->orderBy([
             'TURMA_COD_PK' => SORT_ASC,
         //'TURMA_COD_PK' => SORT_DESC,
          ]);
-
-        $query->andFilterWhere(['like', 'TURMA_DT_INICIO', $this->TURMA_DT_INICIO])
-            ->andFilterWhere(['like', 'TURMA_DT_FIM', $this->TURMA_DT_FIM]);
 
         return $dataProvider;
     }
