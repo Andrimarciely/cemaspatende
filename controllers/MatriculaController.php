@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use Yii;
+use app\models\CURSO;
 use app\models\TURMA;
 use app\models\MATRICULA;
 use app\models\MatriculaSearch;
@@ -127,12 +128,12 @@ class MatriculaController extends Controller
     }
 
     public function actionListar($id){
-        $cturmas=TURMA::find()->where([CURSO_COD_FK=>$id])->count();
-        $turmas=TURMA::find()->where([CURSO_COD_FK=>$id])->all();
+        $cturmas=TURMA::find()->where(['CURSO_COD_FK'=>$id])->count();
+        $turmas=TURMA::find()->where(['CURSO_COD_FK'=>$id])->all();
         
         if($cturmas>0){
             foreach($turmas as $turma){
-            echo "<option value=' ".$turma->TURMA_COD_PK." '>".$turma->TURMA_DT_INICIO." - ".$turma->TURMA_DT_FIM."</option>";
+            echo "<option value=' ".$turma->TURMA_COD_PK." '>".$turma->TURMA_DT_INICIO." -- ".$turma->TURMA_DT_FIM."</option>";
         }
         }else{
         echo "<option>-Nenhuma turma cadastrada-</option>";

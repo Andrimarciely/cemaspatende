@@ -37,6 +37,7 @@ class MatriculaSearch extends MATRICULA
      *
      * @return ActiveDataProvider
      */
+    
     public function search($params)
     {
         $query = MATRICULA::find();
@@ -45,6 +46,11 @@ class MatriculaSearch extends MATRICULA
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+        ]);
+
+        $query->orderBy([
+            'MATRICULA_COD_PK' => SORT_ASC,
+        //'ALUNO_COD_PK' => SORT_DESC,
         ]);
 
         $this->load($params);
