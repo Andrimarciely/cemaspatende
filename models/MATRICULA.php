@@ -36,6 +36,7 @@ class MATRICULA extends \yii\db\ActiveRecord
             [['MATRICULA_COD_PK', 'ALUNO_COD_FK', 'CURSO_COD_FK',], 'number'],
             [['TURMA_COD_FK'],'string', 'max' => 20],
             [['MATRICULA_COD_PK'], 'unique'],
+            [['TURMA_COD_FK'], 'exist', 'skipOnError' => true, 'targetClass' => TURMA::className(), 'targetAttribute' => ['TURMA_COD_FK' => 'TURMA_COD_PK']],
         ];
     }
 

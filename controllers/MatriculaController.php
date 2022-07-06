@@ -125,7 +125,7 @@ class MatriculaController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
-    }   
+    }
 
     public function actionListar($id){
         $cturmas=TURMA::find()->where(['CURSO_COD_FK'=>$id])->count();
@@ -133,7 +133,7 @@ class MatriculaController extends Controller
         
         if($cturmas>0){
             foreach($turmas as $turma){
-            echo "<option value=' ".$turma->TURMA_COD_PK." '>".$turma->TURMA_COD_PK."-".$turma->TURMA_DT_INICIO." - ".$turma->TURMA_DT_FIM."</option>";
+            echo "<option value=' ".$turma->TURMA_COD_PK." '>".$turma->TURMA_DT_INICIO.' - '.$turma->TURMA_DT_FIM."</option>";
         }
         }else{
         echo "<option>-Nenhuma turma cadastrada-</option>";

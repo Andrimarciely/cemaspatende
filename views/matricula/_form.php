@@ -29,15 +29,13 @@ use kartik\select2\Select2;
                                                                                         'disabled'=>!($model->isNewRecord),
                                                                                         'onchange'=>'
                                                                                             $.post( "index.php?r=matricula/listar&id='.'"+$(this).val(), function(data){
-                                                                                            $.post( "index.php?r=matricula/listar&id='.'"+$(this).val(), function(data){
-                                                                                            $.post( "index.php?r=matricula/listar&id='.'"+$(this).val(), function(data){
                                                                                                 $( "select#matricula-turma_cod_fk").html(data);
                                                                                             });'
                                                                                     ]) ?>
 
         <?= $form->field($model, 'TURMA_COD_FK')->dropDownList(ArrayHelper::map(TURMA::find()->all(), 
                                                                                     'TURMA_COD_PK', 
-                                                                                    'TURMA_DT_INICIO','TURMA_DT_FIM'),
+                                                                                    'TURMA_DT_INICIO'),
                                                                                     [
                                                                                         'prompt'=>'- Selecione - ',
                                                                                         'disabled'=>!($model->isNewRecord),
