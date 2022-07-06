@@ -23,13 +23,13 @@ use kartik\select2\Select2;
                 $modelAluno = ALUNO::find()->where(['ALUNO_COD_PK'=>$idAluno])->one();
                 $modelTipo = TIPOALUNO::find()->where([
                             'TIPO_ALUNO_COD_PK'=>$modelAluno->TIPO_ALUNO_COD_FK])->one();
-            echo '<b>Código:</b>'.$idAluno.'</br>';
-            echo '<b>Nome:</b>'.$modelAluno->ALUNO_NOME.'</br>';
-            echo '<b>Tipo:</b>'.$modelTipo->TIPO_ALUNO_NOME.'</br>'
+                echo '<b>Código:</b>'.$idAluno.'</br>';
+                echo '<b>Nome:</b>'.$modelAluno->ALUNO_NOME.'</br>';
+                echo '<b>Tipo:</b>'.$modelTipo->TIPO_ALUNO_NOME.'</br>'
     ?>
     <?= $form->field($model, 'ALUNO_COD_FK')->hiddenInput([
-            'value'=>$idAluno])->label(false);
-    ?>
+            'value'=>$idAluno])->label(false); ?>
+    
     <?php
     }else{
     $id = $_GET['id'];
