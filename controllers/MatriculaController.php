@@ -3,7 +3,6 @@
 namespace app\controllers;
 
 use Yii;
-use app\models\CURSO;
 use app\models\TURMA;
 use app\models\MATRICULA;
 use app\models\MatriculaSearch;

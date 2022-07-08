@@ -33,6 +33,7 @@ class ALUNO extends \yii\db\ActiveRecord
     {
         return [
            // [['ALUNO_COD_PK'], 'required'],
+            [['TIPO_ALUNO_COD_FK', 'ALUNO_NOME','ALUNO_ENDERECO', 'ALUNO_DT_NASC'], 'required'],
             [['ALUNO_COD_PK', 'TIPO_ALUNO_COD_FK'], 'number'],
             [['ALUNO_NOME', 'ALUNO_ENDERECO'], 'string', 'max' => 100],
             [['ALUNO_DT_NASC'], 'string', 'max' => 10],
@@ -48,10 +49,10 @@ class ALUNO extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ALUNO_COD_PK' => 'Cod.',
+            'ALUNO_COD_PK' => 'Matrícula',
             'ALUNO_NOME' => 'Nome',
-            'ALUNO_DT_NASC' => 'Dt. Nasc.',
-            'ALUNO_ENDERECO' => 'Endereco',
+            'ALUNO_DT_NASC' => 'Data de Nascimento',
+            'ALUNO_ENDERECO' => 'Endereço',
             'ALUNO_FOTO' => 'Foto',
             'TIPO_ALUNO_COD_FK' => 'Tipo de Aluno',
         ];
