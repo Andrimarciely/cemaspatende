@@ -15,8 +15,17 @@ use kartik\select2\Select2;
 ?>
 
 <div class="matricula-form">
+<?php $form = ActiveForm::begin(); ?>
+    <?php if (is_Null($_GET['id'])): ?>
+        <?=$form->field($model, 'ALUNO_COD_FK')->dropDownList(ArrayHelper::map(ALUNO::find()->all(), 
+                                                                                    'ALUNO_COD_PK', 
+                                                                                    'ALUNO_NOME'),
+                                                                                    [
+                                                                                        'prompt'=>'- Selecione - ',
+                                                                                        'disabled'=>!($model->isNewRecord),
 
-    <?php $form = ActiveForm::begin(); ?>
+                                                                                    ])?>
+    <?php else: ?>
     <?php
             if ($model->isNewRecord){
                 $idAluno = $_GET['id'];
@@ -41,17 +50,10 @@ use kartik\select2\Select2;
         'value'=>$model->aLUNOCODFK->ALUNO_COD_PK])->label(false);
     ?>
     <?php
-}
+    }
+endif;
 ?>
 
-<!--         <?= $form->field($model, 'ALUNO_COD_FK')->dropDownList(ArrayHelper::map(ALUNO::find()->all(), 
-                                                                                    'ALUNO_COD_PK', 
-                                                                                    'ALUNO_NOME'),
-                                                                                    [
-                                                                                        'prompt'=>'- Selecione - ',
-                                                                                        'disabled'=>!($model->isNewRecord),
-
-                                                                                    ]) ?>  -->
 
 
         <?= $form->field($model, 'CURSO_COD_FK')->dropDownList(ArrayHelper::map(CURSO::find()->all(), 
