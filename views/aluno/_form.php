@@ -25,7 +25,8 @@ use kartik\select2\Select2;
                         'pluginOptions' => [
                             'format' => 'dd/mm/yyyy',
                             'autoclose'=>true,
-                            'todayHighlight' => true    
+                            'todayHighlight' => true,
+                                
                         ],
                     ]); 
         ?>
