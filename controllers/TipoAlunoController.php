@@ -87,7 +87,7 @@ class TipoalunoController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $model = $this->findModel($id); 
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->TIPO_ALUNO_COD_PK]);
@@ -139,4 +139,12 @@ class TipoalunoController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
+    protected function quantidadeAluno($id){
+        if (($model = ALUNO::findOne($id)) !== null) {
+            return $model;
+        }
+        
+    }
+
 }

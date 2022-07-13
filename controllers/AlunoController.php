@@ -127,10 +127,7 @@ class AlunoController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-    /*     $foto = UploadedFile::getInstance($model,'ALUNO_FOTO');
-        
-        $consulta = ALUNO::find()->where(['ALUNO_COD_PK'=>$id])->one();
-        $file = $consulta->ALUNO_FOTO; */
+
 
         if ($model->load(Yii::$app->request->post())) { // && $model->save()) {
             
