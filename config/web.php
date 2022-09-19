@@ -4,7 +4,7 @@ $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
 $config = [
-    'id' => 'as_scursos',
+    'id' => 'CEMASPAtende',
     'language'=>'pt-BR',
     'sourceLanguage'=>'pt-BR',
     'basePath' => dirname(__DIR__),
