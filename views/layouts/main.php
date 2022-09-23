@@ -33,15 +33,15 @@ AppAsset::register($this);
     $login = $usuario_segsemed->USU_NOME;
 
 ?>
-
 <div class="wrap">
     <?php
     NavBar::begin([
         'brandLabel' => 'CEMASP_ATENDE',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
+            'class' => 'navbar-inverse navbar-fixed-to', 
         ],
+
     ]);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],

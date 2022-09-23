@@ -75,15 +75,22 @@ $this->title = 'CEMASP ATENDE';
         <?php
         }
     }?>
+        </div>
     </div>
-<div class="row"> </div>
-    <div class="footer-bg" style="background: url('https://www.manaus.am.gov.br/wp-content/themes/ppm/dist/imagens/2021/bg-rodape.png') repeat-x bottom left; "></div>
-	    <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-    		<div style="text-align: center; font-family: Calibri; color: #6c757d; font-size: 0.9em;">
-			    <img src="https://www.manaus.am.gov.br/wp-content/themes/ppm/dist/imagens/2021/logo-pmm-rodape.png"><br>
-			    <p>COPYRIGHT 2021. TODOS OS DIREITOS RESERVADOS</p>
-    	    </div>
+    
+	<footer>
+		<div class="myfooter" style="background: url('https://www.manaus.am.gov.br/wp-content/themes/ppm/dist/imagens/2021/bg-rodape.png') repeat-x bottom left; ">
+			<div>
+				<div class="row">
+					<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+						<div style="text-align: center; font-family: Calibri; color: #6c757d; font-size: 0.9em;">
+							<img src=https://www.manaus.am.gov.br/wp-content/themes/ppm/dist/imagens/2021/logo-pmm-rodape.png ><br>
+							<p>COPYRIGHT 2021. TODOS OS DIREITOS RESERVADOS</p>
+             			</div>
+					</div>
+				</div>
+			</div>
 		</div>
-	    </div>
-    </div>
+	</footer>
 </div>
+
