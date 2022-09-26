@@ -8,6 +8,20 @@ myfooter {
     left:0;
 }
 
-mynavbar {
+.navbar-default {
+    background-color: #00a5ad;
+    border-color: #00a5ad;
+    border-radius:0;
+}
+
+.navbar-default.navbar-brand,
+.navbar-default.navbar-default.navbar-brand:hover,
+.navbar-default.navbar-brand:focus{
+    color:#00a5ad;
+    background-color: #00a5ad;
+}
+
+.navbar-default.navbar-toogle:hover,
+.navbar-default.navbar-toogle:focus {
     background-color: #00a5ad;
 }

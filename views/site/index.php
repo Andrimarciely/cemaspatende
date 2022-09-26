@@ -25,23 +25,23 @@ $this->title = 'CEMASP ATENDE';
 
         $usuario_segsemed = SEGUSUARIO::findOne(Yii::$app->user->id);
 
-        $consulta = SEGAUTHASSIGNMENT::find()->where(['USER_ID'=>$usuario_segsemed->USU_ID_USUARIO, 'ITEM_NAME'=>"AS_SCURSOS_ADMIN_GERAL"])->one();
+        $consulta = SEGAUTHASSIGNMENT::find()->where(['USER_ID'=>$usuario_segsemed->USU_ID_USUARIO, 'ITEM_NAME'=>"CEMASPATENDE_ADMIN_GERAL"])->one();
         if($consulta){?>
             <div class="row">
                 <div class="col-sm">
                     <center>
-                        <a href="<?php echo Yii::$app->request->baseUrl; ?>/index.php?r=aluno/create">
+                        <a href="<?php echo Yii::$app->request->baseUrl; ?>/index.php?r=alunosemed/create">
                             <div class="btn btn-default" style="width: 300px;" ><i class=" 	glyphicon glyphicon-import"></i> Inserção dos Dados SIGEAM &raquo;</div>
                         </a>
                                               
                         </br></br>
 
-                        <a href="<?php echo Yii::$app->request->baseUrl; ?>/index.php?r=aluno/index">
+                        <a href="<?php echo Yii::$app->request->baseUrl; ?>/index.php?r=alunosemed/index">
                             <div class="btn btn-default" style="width: 300px;" ><i class="glyphicon glyphicon-folder-open"></i> Gerenciamento dos Dados CEMASP &raquo;</div>
                         </a>
                         </br></br>
 
-                        <a href="<?php echo Yii::$app->request->baseUrl; ?>/index.php?r=aluno/index">
+                        <a href="<?php echo Yii::$app->request->baseUrl; ?>/index.php?r=alunosemed/index">
                             <div class="btn btn-default" style="width: 300px;" ><i class="glyphicon glyphicon-calendar"></i> Planejamento de Visitas &raquo;</div>
                         </a>
 

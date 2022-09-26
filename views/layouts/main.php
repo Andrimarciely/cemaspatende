@@ -26,6 +26,8 @@ AppAsset::register($this);
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
+    <link rel="stylesheet" type="css/css" href="template.css"
+
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
@@ -49,12 +51,12 @@ AppAsset::register($this);
         'brandLabel' => 'CEMASP_ATENDE',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-fixed-to', 
+            'class' => 'navbar navbar-default', 
         ],
 
     ]);
     echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
+        'options' => ['class' => 'navbar navbar-default'],
         'items' => [
             ['label' => 'Início', 'url' => ['/site/index']],
             ['label' => 'Sobre', 'url' => ['/site/about']],
