@@ -30,7 +30,7 @@ $this->title = 'CEMASP ATENDE';
             <div class="row">
                 <div class="col-sm">
                     <center>
-                        <a href="<?php echo Yii::$app->request->baseUrl; ?>/index.php?r=alunosemed/create">
+                        <a href="<?php echo Yii::$app->request->baseUrl; ?>/index.php?r=conpolos/create">
                             <div class="btn btn-default" style="width: 300px;" ><i class=" 	glyphicon glyphicon-import"></i> Inserção dos Dados SIGEAM &raquo;</div>
                         </a>
                                               
@@ -41,7 +41,7 @@ $this->title = 'CEMASP ATENDE';
                         </a>
                         </br></br>
 
-                        <a href="<?php echo Yii::$app->request->baseUrl; ?>/index.php?r=alunosemed/index">
+                        <a href="<?php echo Yii::$app->request->baseUrl; ?>/index.php?r=alunosemed/index"> 
                             <div class="btn btn-default" style="width: 300px;" ><i class="glyphicon glyphicon-calendar"></i> Planejamento de Visitas &raquo;</div>
                         </a>
 

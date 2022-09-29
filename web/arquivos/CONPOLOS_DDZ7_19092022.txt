@@ -1,0 +1,12 @@
+ GESC/CONPOLOS              Consulta polo de atendimento             19/09/2022
+ 0001/0007                                                              001/001
+ Rede Ensino: MUNICIPAL Municipio: MANAUS
+
+ Cod.Polo   Descricao Polo         Endereço
+ 1          CEMASP SUL             RUA B N 32 CONJ. ELDORADO
+ 2          CEMASP NORTE           RUA CURIO 64 PROXIMO AO SALMO 91
+ 3          CEMASP LESTE I         TELECENTRO DA E.M. HIRAN DE LIMA CAMINHA
+ 4          CEMASP RURAL           AV PEDRO TEIXEIRA 161 CONJ. D.PEDRO
+ 5          CEMASP OESTE           AVENIDA TORQUATO TAPAJOS DA PAZ DEPARTAM
+ 6          CEMASP CENTRO SUL      RUA FRANCISCA MENDES,1950 PRÉDIO QUE FUN
+ 7          CEMASP LESTE II        AV. AUTAZ MIRIM, S/N, JORGE TEIXEIRA TEL

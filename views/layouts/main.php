@@ -51,12 +51,12 @@ AppAsset::register($this);
         'brandLabel' => 'CEMASP_ATENDE',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar navbar-default', 
+            'class' => 'navbar-inverse navbar-fixed-top', 
         ],
 
     ]);
     echo Nav::widget([
-        'options' => ['class' => 'navbar navbar-default'],
+        'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Início', 'url' => ['/site/index']],
             ['label' => 'Sobre', 'url' => ['/site/about']],
