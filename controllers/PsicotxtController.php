@@ -6,17 +6,14 @@ use Yii;
 use app\models\PSICOTXT;
 use app\models\PsicotxtSearch;
 use yii\web\Controller;
+use app\models\UploadForm;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
-/**
- * PsicotxtController implements the CRUD actions for PSICOTXT model.
- */
+
 class PsicotxtController extends Controller
 {
-    /**
-     * {@inheritdoc}
-     */
     public function behaviors()
     {
         return [
@@ -29,10 +26,6 @@ class PsicotxtController extends Controller
         ];
     }
 
-    /**
-     * Lists all PSICOTXT models.
-     * @return mixed
-     */
     public function actionIndex()
     {
         $searchModel = new PsicotxtSearch();
@@ -43,6 +36,7 @@ class PsicotxtController extends Controller
             'dataProvider' => $dataProvider,
         ]);
     }
+
 
     /**
      * Displays a single PSICOTXT model.
@@ -75,7 +69,7 @@ class PsicotxtController extends Controller
         ]);
     }
 
-    /**
+        /**
      * Updates an existing PSICOTXT model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param string $id
@@ -95,20 +89,7 @@ class PsicotxtController extends Controller
         ]);
     }
 
-    /**
-     * Deletes an existing PSICOTXT model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param string $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    public function actionDelete($id)
-    {
-        $this->findModel($id)->delete();
-
-        return $this->redirect(['index']);
-    }
-
+    
     /**
      * Finds the PSICOTXT model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
@@ -124,4 +105,22 @@ class PsicotxtController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
+    public function actionUpload()
+    {
+        $model = new UploadForm();
+
+        if (Yii::$app ->request->isPost){
+            $model->psicoTxt = UploadedFile::getInstance($model,'psicotxt');
+            if ($model->upload()){
+                return;
+            }
+        }
+
+        return $this->render('upload', ['model' =>$model]);
+        
+    }
+
+
+
 }

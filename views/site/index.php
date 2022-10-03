@@ -30,7 +30,7 @@ $this->title = 'CEMASP ATENDE';
             <div class="row">
                 <div class="col-sm">
                     <center>
-                        <a href="<?php echo Yii::$app->request->baseUrl; ?>/index.php?r=conpolos/create">
+                        <a href="<?php echo Yii::$app->request->baseUrl; ?>/index.php?r=psicotxt/index">
                             <div class="btn btn-default" style="width: 300px;" ><i class=" 	glyphicon glyphicon-import"></i> Importação PSICOTXT &raquo;</div>
                         </a>
                                               

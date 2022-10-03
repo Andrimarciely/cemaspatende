@@ -56,11 +56,10 @@ class PsicotxtSearch extends PSICOTXT
             return $dataProvider;
         }
 
-        // grid filtering conditions
         $query->andFilterWhere([
-            'QUANT_LIGACAO_TEL' => $this->QUANT_LIGACAO_TEL,
-            'QUANT_CONTATO_REDESOCIAL' => $this->QUANT_CONTATO_REDESOCIAL,
+            'CODIGO_ENCAMINHAMENTO' => $this->CODIGO_ENCAMINHAMENTO,
         ]);
+
 
         $query->andFilterWhere(['like', 'CODIGO_ENCAMINHAMENTO', $this->CODIGO_ENCAMINHAMENTO])
             ->andFilterWhere(['like', 'STATUS_ATENDIMENTO', $this->STATUS_ATENDIMENTO])
