@@ -31,6 +31,11 @@ $this->title = 'CEMASP ATENDE';
                 <div class="col-sm">
                     <center>
                         <a href="<?php echo Yii::$app->request->baseUrl; ?>/index.php?r=conpolos/create">
+                            <div class="btn btn-default" style="width: 300px;" ><i class=" 	glyphicon glyphicon-import"></i> Importação PSICOTXT &raquo;</div>
+                        </a>
+                                              
+                        </br></br>
+                        <a href="<?php echo Yii::$app->request->baseUrl; ?>/index.php?r=conpolos/create">
                             <div class="btn btn-default" style="width: 300px;" ><i class=" 	glyphicon glyphicon-import"></i> Inserção dos Dados SIGEAM &raquo;</div>
                         </a>
                                               
